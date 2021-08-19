@@ -72,12 +72,12 @@ Look at sample app for more details.
 4. If you want a circular background instead of a rectangle with rounded corners, just give a high value to `neon_cornerRadius` attribute. Like `999dp`.
 5. The inner background body can have a padding from the stroke. Use `neon_innerBackgroundPadding` attribute for that.
 6. You can control the width of the stroke body using the `neon_strokeWidth` attribute.
-7. The `shadowMultiplier` attribute is a float variable and is used in calculating the shadow blur radius:
+7. The `neon_shadowMultiplier` attribute is a float variable and is used in calculating the shadow blur radius:
 
   `blurRadius = strokeWidth * shadowMultiplier`.
 
-8. There are 5 padding attribiutes that give your specified space around all of the body shapes. If you use the main padding attribute the other 4 will get ignored.
-9. Note that these 4 padding attributes are seperate from the original views padding attributes. These paddings start with `neon_`. Like `neon_rightPadding`
+8. There are 5 padding attribiutes that give your specified space around all of the body shapes. If you use the main `neon_padding` attribute the other 4 will get ignored.
+9. Note that these 4 padding attributes are seperate from the original view's padding attributes. These paddings start with `neon_`. Like `neon_rightPadding`
 
 I will try to add the java methods soon.
 
