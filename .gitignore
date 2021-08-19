@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea/$CACHE_FILE$
+/.idea/.gitignore
+/.idea/compiler.xml
+/app/src/androidTest/java/com/MirageStudios/NeonBackgroundView/ExampleInstrumentedTest.java
+/app/src/test/java/com/MirageStudios/NeonBackgroundView/ExampleUnitTest.java
+/.idea/gradle.xml
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/vcs.xml
