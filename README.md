@@ -4,6 +4,7 @@ A Layout That helps you create a glowing neon light effect as the background of 
 [![](https://jitpack.io/v/mr-sarsarabi/NeonLightBackgroundLayout.svg)](https://jitpack.io/#mr-sarsarabi/NeonLightBackgroundLayout)
 
 ![Screenshot of the library outcome.](screenshot.png)
+![Screenshot of the library outcome.](screenshot2.png)
 
 #### Gradle:
 **Step 1.** Add it in your root build.gradle at the end of repositories:
