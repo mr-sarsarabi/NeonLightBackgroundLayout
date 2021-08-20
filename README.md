@@ -3,8 +3,8 @@ A Layout That helps you create a glowing neon light effect as the background of 
 
 [![](https://jitpack.io/v/mr-sarsarabi/NeonLightBackgroundLayout.svg)](https://jitpack.io/#mr-sarsarabi/NeonLightBackgroundLayout)
 
-![Screenshot of the library outcome.](screenshot.png)
-![Screenshot of the library outcome.](screenshot2.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot2.png)
 
 #### Gradle:
 **Step 1.** Add it in your root build.gradle at the end of repositories:
@@ -77,9 +77,19 @@ Look at sample app for more details.
 
   `blurRadius = strokeWidth * shadowMultiplier`.
 
-8. There are 5 padding attribiutes that give your specified space around all of the body shapes. If you use the main `neon_padding` attribute the other 4 will get ignored.
-9. Note that these 4 padding attributes are seperate from the original view's padding attributes. These paddings start with `neon_`. Like `neon_rightPadding`
+8. There are 5 padding attributes that give your specified space around all of the body shapes. If you use the main `neon_padding` attribute the other 4 will get ignored.
+9. Note that these 4 padding attributes are separate from the original view's padding attributes. These padding attrs start with `neon_`. Like `neon_rightPadding`
 
 I will try to add the java methods soon.
 
-Allright. Have fun coding.
+##### Other Possible Outputs
+
+![Screenshot of the library outcome.](ScreenShots/screenshot3.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot4.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot5.png)
+
+
+![Screenshot of the library outcome.](ScreenShots/screenshot6.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot7.png)
+![Screenshot of the library outcome.](ScreenShots/screenshot8.png)
+

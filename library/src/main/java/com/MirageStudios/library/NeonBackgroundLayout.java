@@ -421,50 +421,74 @@ public class NeonBackgroundLayout extends FrameLayout {
     }
 
     private void drawHorizontalStretchedCircle(Canvas canvas) {
-        // left half circle
-        drawArc(canvas, lc, cr, 90, 180);
-
-        // right half circle
-        drawArc(canvas, rc, cr, 270, 180);
-
         if ((style & STYLE_SHADOW_ONLY) == STYLE_SHADOW_ONLY) {
             // top line
             canvas.drawLine(lc.x, lc.y - cr, rc.x, rc.y - cr, shadowPaint);
             // bottom line
             canvas.drawLine(lc.x, lc.y + cr, rc.x, rc.y + cr, shadowPaint);
+            // left half circle
+            canvas.drawArc(new RectF(lc.x - cr, lc.y - cr, lc.x + cr, lc.y + cr),
+                    90, 180, false, shadowPaint);
+            // right half circle
+            canvas.drawArc(new RectF(rc.x - cr, rc.y - cr, rc.x + cr, rc.y + cr),
+                    270, 180, false, shadowPaint);
         }
         if ((style & STYLE_INNER_BACKGROUND_ONLY) == STYLE_INNER_BACKGROUND_ONLY) {
             canvas.drawRect(new RectF(lc.x, lc.y - ibcr, rc.x, rc.y + ibcr), innerBackgroundPaint);
+            // left half circle
+            canvas.drawArc(new RectF(lc.x - ibcr, lc.y - ibcr, lc.x + ibcr, lc.y + ibcr),
+                    90, 180, true, innerBackgroundPaint);
+            // right half circle
+            canvas.drawArc(new RectF(rc.x - ibcr, rc.y - ibcr, rc.x + ibcr, rc.y + ibcr),
+                    270, 180, true, innerBackgroundPaint);
         }
         if ((style & STYLE_STROKE_ONLY) == STYLE_STROKE_ONLY) {
             // top line
             canvas.drawLine(lc.x, lc.y - cr, rc.x, rc.y - cr, bodyPaint);
             // bottom line
             canvas.drawLine(lc.x, lc.y + cr, rc.x, rc.y + cr, bodyPaint);
+            // left half circle
+            canvas.drawArc(new RectF(lc.x - cr, lc.y - cr, lc.x + cr, lc.y + cr),
+                    90, 180, false, bodyPaint);
+            // right half circle
+            canvas.drawArc(new RectF(rc.x - cr, rc.y - cr, rc.x + cr, rc.y + cr),
+                    270, 180, false, bodyPaint);
         }
     }
 
     private void drawVerticalStretchedCircle(Canvas canvas) {
-        // top half circle
-        drawArc(canvas, tc, cr, 180, 180);
-
-        // bottom half circle
-        drawArc(canvas, bc, cr, 0, 180);
-
         if ((style & STYLE_SHADOW_ONLY) == STYLE_SHADOW_ONLY) {
             // left line
             canvas.drawLine(tc.x - cr, tc.y, bc.x - cr, bc.y, shadowPaint);
             // right line
             canvas.drawLine(tc.x + cr, tc.y, bc.x + cr, bc.y, shadowPaint);
+            // top half circle
+            canvas.drawArc(new RectF(tc.x - cr, tc.y - cr, tc.x + cr, tc.y + cr),
+                    180, 180, false, shadowPaint);
+            // bottom half circle
+            canvas.drawArc(new RectF(bc.x - cr, bc.y - cr, bc.x + cr, bc.y + cr),
+                    0, 180, false, shadowPaint);
         }
         if ((style & STYLE_INNER_BACKGROUND_ONLY) == STYLE_INNER_BACKGROUND_ONLY) {
             canvas.drawRect(new RectF(tc.x - ibcr, tc.y, bc.x + ibcr, bc.y), innerBackgroundPaint);
+            // top half circle
+            canvas.drawArc(new RectF(tc.x - ibcr, tc.y - ibcr, tc.x + ibcr, tc.y + ibcr),
+                    180, 180, true, innerBackgroundPaint);
+            // bottom half circle
+            canvas.drawArc(new RectF(bc.x - ibcr, bc.y - ibcr, bc.x + ibcr, bc.y + ibcr),
+                    0, 180, true, innerBackgroundPaint);
         }
         if ((style & STYLE_STROKE_ONLY) == STYLE_STROKE_ONLY) {
             // left line
             canvas.drawLine(tc.x - cr, tc.y, bc.x - cr, bc.y, bodyPaint);
             // right line
             canvas.drawLine(tc.x + cr, tc.y, bc.x + cr, bc.y, bodyPaint);
+            // top half circle
+            canvas.drawArc(new RectF(tc.x - cr, tc.y - cr, tc.x + cr, tc.y + cr),
+                    180, 180, false, bodyPaint);
+            // bottom half circle
+            canvas.drawArc(new RectF(bc.x - cr, bc.y - cr, bc.x + cr, bc.y + cr),
+                    0, 180, false, bodyPaint);
         }
     }
 
@@ -522,22 +546,6 @@ public class NeonBackgroundLayout extends FrameLayout {
             canvas.drawLine(ltc.x, ltc.y - cr, rtc.x, rtc.y - cr, bodyPaint);
             // bottom line
             canvas.drawLine(lbc.x, lbc.y + cr, rbc.x, rbc.y + cr, bodyPaint);
-        }
-    }
-
-    private void drawArc(Canvas canvas, Point center, int radius, int startAngle, int sweepAngle) {
-        // inner background is not playing a role in here.
-        if ((style & STYLE_SHADOW_ONLY) == STYLE_SHADOW_ONLY) {
-            canvas.drawArc(new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius),
-                    startAngle, sweepAngle, false, shadowPaint);
-        }
-        if ((style & STYLE_INNER_BACKGROUND_ONLY) == STYLE_INNER_BACKGROUND_ONLY) {
-            canvas.drawArc(new RectF(center.x - ibcr, center.y - ibcr, center.x + ibcr, center.y + ibcr),
-                    startAngle, sweepAngle, true, innerBackgroundPaint);
-        }
-        if ((style & STYLE_STROKE_ONLY) == STYLE_STROKE_ONLY) {
-            canvas.drawArc(new RectF(center.x - radius, center.y - radius, center.x + radius, center.y + radius),
-                    startAngle, sweepAngle, false, bodyPaint);
         }
     }
 
