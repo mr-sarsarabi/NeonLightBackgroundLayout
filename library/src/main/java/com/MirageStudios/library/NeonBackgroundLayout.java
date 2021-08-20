@@ -226,12 +226,12 @@ public class NeonBackgroundLayout extends FrameLayout {
                 R.styleable.NeonBackgroundLayout,
                 defStyleAttr, 0);
         try {
-            padding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_padding, 0);
-            topPadding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_topPadding, 0);
-            leftPadding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_leftPadding, 0);
-            bottomPadding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_bottomPadding, 0);
-            rightPadding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_rightPadding, 0);
-            innerBackgroundPadding = a.getDimension(R.styleable.NeonBackgroundLayout_neon_innerBackgroundPadding, 0);
+            padding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_padding, 0);
+            topPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_topPadding, 0);
+            leftPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_leftPadding, 0);
+            bottomPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_bottomPadding, 0);
+            rightPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_rightPadding, 0);
+            innerBackgroundPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_innerBackgroundPadding, 0);
 
             if (padding > 0) {
                 topPadding = padding;
@@ -240,8 +240,8 @@ public class NeonBackgroundLayout extends FrameLayout {
                 rightPadding = padding;
             }
 
-            cornerRadius = a.getDimension(R.styleable.NeonBackgroundLayout_neon_cornerRadius, 6);
-            strokeWidth = a.getDimension(R.styleable.NeonBackgroundLayout_neon_strokeWidth, 4);
+            cornerRadius = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_cornerRadius, (int) dpToPx(6, getContext()));
+            strokeWidth = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_strokeWidth, (int) dpToPx(4,getContext()));
             shadowMultiplier = a.getFloat(R.styleable.NeonBackgroundLayout_neon_shadowMultiplier, 2f);
 
             if (cornerRadius < 0) cornerRadius = 0;
@@ -262,16 +262,16 @@ public class NeonBackgroundLayout extends FrameLayout {
     }
 
     private void calculateComputationalValues() {
-        brp = (int) Math.ceil(dpToPx(rightPadding, getContext()));
-        btp = (int) Math.ceil(dpToPx(topPadding, getContext()));
-        blp = (int) Math.ceil(dpToPx(leftPadding, getContext()));
-        bbp = (int) Math.ceil(dpToPx(bottomPadding, getContext()));
-        ibp = (int) Math.ceil(dpToPx(innerBackgroundPadding, getContext()));
+        brp = (int) rightPadding;
+        btp = (int) topPadding;
+        blp = (int) leftPadding;
+        bbp = (int) bottomPadding;
+        ibp = (int) innerBackgroundPadding;
 
         if (ibp < 0) ibp = 0;
 
-        cr = (int) Math.ceil(dpToPx(cornerRadius, getContext()));
-        sw = (int) Math.ceil(dpToPx(strokeWidth, getContext()));
+        cr = (int) cornerRadius;
+        sw = (int) strokeWidth;
         hsw = (int) Math.floor(sw / 2f);
         br = (int) Math.ceil(sw * shadowMultiplier);
         if (cr == 0) {
