@@ -385,7 +385,6 @@ public class NeonBackgroundLayout extends FrameLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        super.dispatchDraw(canvas);
         switch (mode) {
             case MODE_CIRCLE:
                 drawCircle(canvas);
@@ -400,6 +399,7 @@ public class NeonBackgroundLayout extends FrameLayout {
                 drawRectangleWithRoundCorners(canvas);
                 break;
         }
+        super.dispatchDraw(canvas);
     }
 
     @Override
