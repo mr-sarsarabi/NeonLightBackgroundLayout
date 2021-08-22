@@ -41,6 +41,23 @@ A Layout That helps you create a glowing neon light effect as the background of 
 	    <version>v1.0.2</version>
 	</dependency>
 
+#### AndroidManifest.xml
+
+Make sure to have the hardwareAcceleration turned on. (Current shadow method is not supported on some devices while hardware acceleration in off. I plan to fix this issue.)
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_icon"
+        ...
+        android:hardwareAccelerated="true"
+        ...
+        >
+        
+        ...
+        
+        </application>
 
 ### Usage
 
