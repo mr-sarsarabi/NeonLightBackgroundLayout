@@ -170,17 +170,20 @@ public class NeonBackgroundLayout extends FrameLayout {
      */
     private Point iblbc;
 
+    private final static int MODE_INVALID_SIZES = -1;
     private final static int MODE_CIRCLE = 0;
     private final static int MODE_HORIZONTAL_STRETCHED_CIRCLE = 1;
     private final static int MODE_VERTICAL_STRETCHED_CIRCLE = 2;
     private final static int MODE_RECTANGLE_WITH_ROUND_CORNERS = 3;
-
-    @IntDef({MODE_CIRCLE, MODE_HORIZONTAL_STRETCHED_CIRCLE, MODE_VERTICAL_STRETCHED_CIRCLE, MODE_RECTANGLE_WITH_ROUND_CORNERS})
-    private @interface Mode {
-    }
-
     @Mode
-    private int mode = MODE_CIRCLE;
+    private int mode = MODE_INVALID_SIZES;
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        calculateRuntimeComputationalValues(getWidth(), getHeight());
+    }
 
     public final static int STYLE_SHADOW_ONLY = 0b001;//1
     public final static int STYLE_STROKE_ONLY = 0b010;//2
@@ -304,18 +307,6 @@ public class NeonBackgroundLayout extends FrameLayout {
         innerBackgroundPaint.setStyle(Paint.Style.FILL);
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        calculateRuntimeComputationalValues(getWidth(), getHeight());
-    }
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        calculateRuntimeComputationalValues(w, h);
-    }
-
     private void calculateRuntimeComputationalValues(int w, int h) {
         if (blp + 2 * br + brp < w && btp + 2 * br + bbp < h) {
             sbw = w - blp - brp - 2 * br - sw;
@@ -368,7 +359,19 @@ public class NeonBackgroundLayout extends FrameLayout {
             }
 
             if (ibcr < 0) ibcr = 0;
+        } else {
+            mode = MODE_INVALID_SIZES;
         }
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        calculateRuntimeComputationalValues(w, h);
+    }
+
+    @IntDef({MODE_INVALID_SIZES, MODE_CIRCLE, MODE_HORIZONTAL_STRETCHED_CIRCLE, MODE_VERTICAL_STRETCHED_CIRCLE, MODE_RECTANGLE_WITH_ROUND_CORNERS})
+    private @interface Mode {
     }
 
     private void calculateBoxValues(int w, int h) {

@@ -18,7 +18,7 @@ A Layout That helps you create a glowing neon light effect as the background of 
 **Step 2.** Add the dependency
 
 	dependencies {
-	        implementation 'com.github.mr-sarsarabi:NeonLightBackgroundLayout:1.0.2'
+	        implementation 'com.github.mr-sarsarabi:NeonLightBackgroundLayout:1.0.3'
 	}
 
 #### Maven:
@@ -38,7 +38,7 @@ A Layout That helps you create a glowing neon light effect as the background of 
 	<dependency>
 	    <groupId>com.github.mr-sarsarabi</groupId>
 	    <artifactId>NeonLightBackgroundLayout</artifactId>
-	    <version>v1.0.2</version>
+	    <version>v1.0.3</version>
 	</dependency>
 
 #### AndroidManifest.xml
