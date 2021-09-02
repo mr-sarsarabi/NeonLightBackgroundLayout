@@ -10,6 +10,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.IntDef;
@@ -244,7 +245,7 @@ public class NeonBackgroundLayout extends FrameLayout {
             }
 
             cornerRadius = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_cornerRadius, (int) dpToPx(6, getContext()));
-            strokeWidth = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_strokeWidth, (int) dpToPx(4,getContext()));
+            strokeWidth = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_strokeWidth, (int) dpToPx(4, getContext()));
             shadowMultiplier = a.getFloat(R.styleable.NeonBackgroundLayout_neon_shadowMultiplier, 2f);
 
             if (cornerRadius < 0) cornerRadius = 0;
@@ -262,6 +263,8 @@ public class NeonBackgroundLayout extends FrameLayout {
     private void init() {
         calculateComputationalValues();
         initBlurPainting();
+        // disabling Hardware Acceleration for this view
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     private void calculateComputationalValues() {
