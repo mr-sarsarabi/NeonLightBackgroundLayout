@@ -18,7 +18,7 @@ A Layout That helps you create a glowing neon light effect as the background of 
 **Step 2.** Add the dependency
 
 	dependencies {
-	        implementation 'com.github.mr-sarsarabi:NeonLightBackgroundLayout:1.0.4'
+	        implementation 'com.github.mr-sarsarabi:NeonLightBackgroundLayout:1.1.0'
 	}
 
 #### Maven:
@@ -41,7 +41,7 @@ A Layout That helps you create a glowing neon light effect as the background of 
 	    <version>v1.0.4</version>
 	</dependency>
 
-### Usage
+## Usage
 
 Look at sample app for more details.
 
@@ -84,7 +84,7 @@ Look at sample app for more details.
         neonBackgroundLayout.setShadowColor(Color.parseColor("#FFB300"));
         neonBackgroundLayout.setInnerBackgroundColor(Color.parseColor("#48000000"));
 
-### Notes:
+## Notes:
 1. There are 3 main bodies in the generated background: `shadow` - `stroke` - `innerBackground`
 2. You can enable or disable each of the bodies using the `neon_style` attribute.
 3. You can change the color of each body using it's color attribute.
@@ -99,7 +99,7 @@ Look at sample app for more details.
 9. Note that these 4 padding attributes are separate from the original view's padding attributes. These padding attrs start with `neon_`. Like `neon_rightPadding`
 
 
-##### Other Possible Outputs
+#### Other Possible Outputs
 
 ![Screenshot of the library outcome.](ScreenShots/screenshot3.png)
 ![Screenshot of the library outcome.](ScreenShots/screenshot4.png)
