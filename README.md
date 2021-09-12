@@ -45,6 +45,8 @@ A Layout That helps you create a glowing neon light effect as the background of 
 
 Look at sample app for more details.
 
+#### XML
+
     <com.MirageStudios.library.NeonBackgroundLayout
             android:layout_width="250dp"
             android:layout_height="250dp"
@@ -64,8 +66,25 @@ Look at sample app for more details.
             app:neon_style="style_stroke_with_inner_background_and_shadow">
             
     </com.MirageStudios.library.NeonBackgroundLayout>
-    
-#### Notes:
+
+#### JAVA
+
+        NeonBackgroundLayout neonBackgroundLayout = findViewById(R.id.neon_background_layout);
+        neonBackgroundLayout.setBackgroundPadding(
+                dpToPx(1, this),
+                dpToPx(1, this),
+                dpToPx(1, this),
+                dpToPx(1, this)
+        );
+        neonBackgroundLayout.setInnerBackgroundPadding(dpToPx(12, this));
+        neonBackgroundLayout.setCornerRadius(dpToPx(24, this));
+        neonBackgroundLayout.setStrokeWidth(dpToPx(4, this));
+        neonBackgroundLayout.setShadowMultiplier(2);
+        neonBackgroundLayout.setStrokeColor(Color.parseColor("#FFB300"));
+        neonBackgroundLayout.setShadowColor(Color.parseColor("#FFB300"));
+        neonBackgroundLayout.setInnerBackgroundColor(Color.parseColor("#48000000"));
+
+### Notes:
 1. There are 3 main bodies in the generated background: `shadow` - `stroke` - `innerBackground`
 2. You can enable or disable each of the bodies using the `neon_style` attribute.
 3. You can change the color of each body using it's color attribute.
@@ -79,7 +98,6 @@ Look at sample app for more details.
 8. There are 5 padding attributes that give your specified space around all of the body shapes. If you use the main `neon_padding` attribute the other 4 will get ignored.
 9. Note that these 4 padding attributes are separate from the original view's padding attributes. These padding attrs start with `neon_`. Like `neon_rightPadding`
 
-I will try to add the java methods soon.
 
 ##### Other Possible Outputs
 

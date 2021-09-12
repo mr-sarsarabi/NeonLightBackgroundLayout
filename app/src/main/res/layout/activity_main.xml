@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <com.MirageStudios.library.NeonBackgroundLayout
+        android:id="@+id/neon_background_layout"
         android:layout_width="353dp"
         android:layout_height="189dp"
         android:layout_gravity="center"
@@ -19,9 +20,9 @@
         app:neon_leftPadding="8dp"
         app:neon_rightPadding="8dp"
         app:neon_shadowColor="#FFB300"
-        app:neon_shadowMultiplier="1.5"
+        app:neon_shadowMultiplier="2"
         app:neon_strokeColor="#FFB300"
-        app:neon_strokeWidth="6dp"
+        app:neon_strokeWidth="4dp"
         app:neon_style="style_stroke_with_inner_background_and_shadow"
         app:neon_topPadding="8dp">
 

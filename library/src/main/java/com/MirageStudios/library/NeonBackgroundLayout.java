@@ -13,6 +13,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.IntDef;
 import androidx.annotation.Nullable;
 
@@ -237,13 +238,6 @@ public class NeonBackgroundLayout extends FrameLayout {
             rightPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_rightPadding, 0);
             innerBackgroundPadding = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_innerBackgroundPadding, 0);
 
-            if (padding > 0) {
-                topPadding = padding;
-                leftPadding = padding;
-                bottomPadding = padding;
-                rightPadding = padding;
-            }
-
             cornerRadius = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_cornerRadius, (int) dpToPx(6, getContext()));
             strokeWidth = a.getDimensionPixelSize(R.styleable.NeonBackgroundLayout_neon_strokeWidth, (int) dpToPx(4, getContext()));
             shadowMultiplier = a.getFloat(R.styleable.NeonBackgroundLayout_neon_shadowMultiplier, 2f);
@@ -268,6 +262,14 @@ public class NeonBackgroundLayout extends FrameLayout {
     }
 
     private void calculateComputationalValues() {
+
+        if (padding != 0) {
+            topPadding = padding;
+            leftPadding = padding;
+            bottomPadding = padding;
+            rightPadding = padding;
+        }
+
         brp = (int) rightPadding;
         btp = (int) topPadding;
         blp = (int) leftPadding;
@@ -559,5 +561,110 @@ public class NeonBackgroundLayout extends FrameLayout {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, valueDp,
                 displayMetrics);
+    }
+
+    /**
+     * @param padding the general background padding on all 4 sides. (Will override other paddings if the value is non zero) (px)
+     */
+    public void setBackgroundPadding(float padding) {
+        this.padding = padding;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param leftPadding   left background padding (px)
+     * @param topPadding    top background padding (px)
+     * @param rightPadding  right background padding (px)
+     * @param bottomPadding bottom background padding (px)
+     */
+    public void setBackgroundPadding(float leftPadding, float topPadding, float rightPadding, float bottomPadding) {
+        this.leftPadding = leftPadding;
+        this.topPadding = topPadding;
+        this.rightPadding = rightPadding;
+        this.bottomPadding = bottomPadding;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param innerBackgroundPadding value of the padding between stroke and inner background (px)
+     */
+    public void setInnerBackgroundPadding(float innerBackgroundPadding) {
+        this.innerBackgroundPadding = innerBackgroundPadding;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param cornerRadius the background's corner radius (px)
+     */
+    public void setCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param strokeWidth width of the stroke and the shadow bodies (px)
+     */
+    public void setStrokeWidth(float strokeWidth) {
+        this.strokeWidth = strokeWidth;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param shadowMultiplier shadow body's multiplier value. used in calculating blur radius. blur radius = stroke width * shadow multiplier
+     */
+    public void setShadowMultiplier(float shadowMultiplier) {
+        this.shadowMultiplier = shadowMultiplier;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param strokeColor integer value of the stroke body's color (#AARRGGBB)
+     */
+    public void setStrokeColor(@ColorInt int strokeColor) {
+        this.strokeColor = strokeColor;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param shadowColor integer value of the shadow body's color (#AARRGGBB)
+     */
+    public void setShadowColor(@ColorInt int shadowColor) {
+        this.shadowColor = shadowColor;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
+    }
+
+    /**
+     * @param innerBackgroundColor integer value of the inner background body's color (#AARRGGBB)
+     */
+    public void setInnerBackgroundColor(@ColorInt int innerBackgroundColor) {
+        this.innerBackgroundColor = innerBackgroundColor;
+        init();
+        calculateBoxValues(getWidth(), getHeight());
+        invalidate();
+        requestLayout();
     }
 }
