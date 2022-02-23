@@ -1,4 +1,4 @@
-package com.MirageStudios.NeonBackgroundView;
+package com.mirageStudios.NeonBackgroundView;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
-import com.MirageStudios.library.NeonBackgroundLayout;
+import com.mirageStudios.library.NeonBackgroundLayout;
 
 public class MainActivity extends Activity {
 

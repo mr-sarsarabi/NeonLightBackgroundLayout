@@ -47,7 +47,7 @@ Look at sample app for more details.
 
 #### XML
 
-    <com.MirageStudios.library.NeonBackgroundLayout
+    <com.mirageStudios.library.NeonBackgroundLayout
             android:layout_width="250dp"
             android:layout_height="250dp"
             android:layout_gravity="center"
@@ -65,7 +65,7 @@ Look at sample app for more details.
             app:neon_strokeWidth="3dp"
             app:neon_style="style_stroke_with_inner_background_and_shadow">
             
-    </com.MirageStudios.library.NeonBackgroundLayout>
+    </com.mirageStudios.library.NeonBackgroundLayout>
 
 #### JAVA
 

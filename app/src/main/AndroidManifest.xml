@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.MirageStudios.NeonBackgroundView">
+    package="com.mirageStudios.NeonBackgroundView">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:hardwareAccelerated="false"
         android:theme="@style/Theme.NeonBackgroundView">
-        <activity android:name="com.MirageStudios.NeonBackgroundView.MainActivity">
+        <activity android:name="com.mirageStudios.NeonBackgroundView.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

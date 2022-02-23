@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <com.MirageStudios.library.NeonBackgroundLayout
+    <com.mirageStudios.library.NeonBackgroundLayout
         android:id="@+id/neon_background_layout"
         android:layout_width="353dp"
         android:layout_height="189dp"
@@ -38,6 +38,6 @@
             android:text="Neon Background Layout"
             android:textColor="#FFB300"
             android:textSize="24dp" />
-    </com.MirageStudios.library.NeonBackgroundLayout>
+    </com.mirageStudios.library.NeonBackgroundLayout>
 
 </FrameLayout>

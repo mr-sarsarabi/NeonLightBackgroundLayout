@@ -1,4 +1,4 @@
-package com.MirageStudios.library;
+package com.mirageStudios.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
